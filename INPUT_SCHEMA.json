@@ -1,0 +1,56 @@
+
+{
+    "title": "Gutenberg.org Scraper",
+    "description": "An actor that scrapes ebooks from gutenberg.org",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "search":{
+            "title": "Search keyword",
+            "type": "string",
+            "description": "Keyword that you want to search in Gutenberg.org",
+            "editor": "textfield"
+        },
+        "language":{
+            "title": "Language",
+            "type": "string",
+            "description": "Select a language that Gutenberg.org provides",
+            "editor": "select",
+            "default": "en",
+            "enum": ["en","zh","da","nl","eo","fi","fr","de","el","hu","it","la","pt","es","sv","tl","af","ale","ar","arp","brx","br","bg","rmr","ca","ceb","cs","et","fa","fy","fur","gla","gl","kld","grc","he","is","ilo","ia","iu","ga","ja","csb","kha","ko","lt","mi","myn","enm","nah","nap","nav","nai","no","oc","oji","ang","pl","ro","ru","sa","sr","sl","bgs","te","cy"],
+            "enumTitles": ["English","Chinese","Danish","Dutch","Esperanto","Finnish","French","German","Greek","Hungarian","Italian","Latin","Portuguese","Spanish","Swedish","Tagalog","Afrikaans","Aleut","Arabic","Arapaho","Bodo","Breton","Bulgarian","Caló","Catalan","Cebuano","Czech","Estonian","Farsi","Frisian","Friulian","Gaelic, Scottish","Galician","Gamilaraay","Greek, Ancient","Hebrew","Icelandic","Iloko","Interlingua","Inuktitut","Irish","Japanese","Kashubian","Khasi","Korean","Lithuanian","Maori","Mayan Languages","Middle English","Nahuatl","Napoletano-Calabrese","Navajo","North American Indian","Norwegian","Occitan","Ojibwa","Old English","Polish","Romanian","Russian","Sanskrit","Serbian","Slovenian","Tagabawa","Telugu","Welsh","Yiddish"]
+        },
+        "startUrls": {
+            "title": "Start URLs",
+            "type": "array",
+            "description": "URLs to start with. It should be category or product detail URLs",
+            "prefill": [
+                { "url": "https://www.gutenberg.org/browse/recent/last7" },
+                { "url": "https://www.gutenberg.org/browse/titles/h" }
+            ],
+            "editor": "requestListSources"
+        },
+        "maxItems":{
+            "title": "Max Items",
+            "type": "integer",
+            "description": "Maximum number of items you want on your results",
+            "editor": "number"
+        },
+        "extendOutputFunction": {
+            "title": "Extend output function",
+            "type": "string",
+            "nullable": true,
+            "description": "Function that takes a JQuery handle ($) as argument and returns data that will be merged with the default output",
+            "prefill": "($) => { return {} }",
+            "editor": "javascript"
+        },
+        "proxyConfig": {
+            "title": "Proxy configuration",
+            "type": "object",
+            "description": "Optionally use Apify Proxy",
+            "prefill": { "useApifyProxy": true, "apifyProxyGroups": ["SHADER"] },
+            "editor": "proxy"
+        }
+    },
+    "required": ["proxyConfig"]
+}
