@@ -87,7 +87,7 @@ exports.EBOOK = async ({ $, request }) => {
         const dataset = await Apify.openDataset();
         const { cleanItemCount } = await dataset.getInfo();
 
-        if (maxItems <= cleanItemCount) {
+        if (maxItems <= cleanItemCount + 1) {
             process.exit(0);
         }
     }
