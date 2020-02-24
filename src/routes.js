@@ -7,6 +7,9 @@ const {
 } = Apify;
 
 
+// ItemCount
+let itemCount = 0;
+
 // BROWSE page crawler.
 // Fetches the ebooks from the list
 exports.BROWSE = async ({ $, request }, { requestQueue }) => {
@@ -79,18 +82,14 @@ exports.SEARCH = async ({ $, request }, { requestQueue }) => {
 // EBOOK page crawler.
 // Gets details of current ebook
 exports.EBOOK = async ({ $, request }) => {
-    const { maxItems, extendOutputFunction } = global.userInput;
+    const { extendOutputFunction, maxItems } = global.userInput;
     log.info(`CRAWLER -- Fetching ebook details from ${request.url}`);
 
     // Check for maxItems
-    if (maxItems) {
-        const dataset = await Apify.openDataset();
-        const { cleanItemCount } = await dataset.getInfo();
-
-        if (maxItems <= cleanItemCount + 1) {
-            process.exit(0);
-        }
+    if (maxItems && maxItems <= itemCount) {
+        process.exit(0);
     }
+
 
     // Fetch ebook details
     const ebook = extractors.fetchEbook($);
@@ -98,6 +97,7 @@ exports.EBOOK = async ({ $, request }) => {
 
     // Push data
     await Apify.pushData({ ...ebook, ...(extendOutputFunction ? { ...eval(extendOutputFunction)($) } : {}) });
+    itemCount += 1;
 
     log.debug(`CRAWLER -- ebook details fetched from ${request.url}`);
 };

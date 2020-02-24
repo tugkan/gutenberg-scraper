@@ -34,6 +34,7 @@ Apify.main(async () => {
     // Create route
     const router = tools.createRouter({ requestQueue });
 
+
     log.info('PHASE -- SETTING UP CRAWLER.');
     const crawler = new Apify.CheerioCrawler({
         requestQueue,
