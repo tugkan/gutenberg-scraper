@@ -16,9 +16,9 @@
             "type": "string",
             "description": "Select a language that Gutenberg.org provides",
             "editor": "select",
-            "default": "en",
-            "enum": ["en","zh","da","nl","eo","fi","fr","de","el","hu","it","la","pt","es","sv","tl","af","ale","ar","arp","brx","br","bg","rmr","ca","ceb","cs","et","fa","fy","fur","gla","gl","kld","grc","he","is","ilo","ia","iu","ga","ja","csb","kha","ko","lt","mi","myn","enm","nah","nap","nav","nai","no","oc","oji","ang","pl","ro","ru","sa","sr","sl","bgs","te","cy"],
-            "enumTitles": ["English","Chinese","Danish","Dutch","Esperanto","Finnish","French","German","Greek","Hungarian","Italian","Latin","Portuguese","Spanish","Swedish","Tagalog","Afrikaans","Aleut","Arabic","Arapaho","Bodo","Breton","Bulgarian","Caló","Catalan","Cebuano","Czech","Estonian","Farsi","Frisian","Friulian","Gaelic, Scottish","Galician","Gamilaraay","Greek, Ancient","Hebrew","Icelandic","Iloko","Interlingua","Inuktitut","Irish","Japanese","Kashubian","Khasi","Korean","Lithuanian","Maori","Mayan Languages","Middle English","Nahuatl","Napoletano-Calabrese","Navajo","North American Indian","Norwegian","Occitan","Ojibwa","Old English","Polish","Romanian","Russian","Sanskrit","Serbian","Slovenian","Tagabawa","Telugu","Welsh","Yiddish"]
+            "default": "None",
+            "enum": ["none", "en","zh","da","nl","eo","fi","fr","de","el","hu","it","la","pt","es","sv","tl","af","ale","ar","arp","brx","br","bg","rmr","ca","ceb","cs","et","fa","fy","fur","gla","gl","kld","grc","he","is","ilo","ia","iu","ga","ja","csb","kha","ko","lt","mi","myn","enm","nah","nap","nav","nai","no","oc","oji","ang","pl","ro","ru","sa","sr","sl","bgs","te","cy"],
+            "enumTitles": ["None", "English","Chinese","Danish","Dutch","Esperanto","Finnish","French","German","Greek","Hungarian","Italian","Latin","Portuguese","Spanish","Swedish","Tagalog","Afrikaans","Aleut","Arabic","Arapaho","Bodo","Breton","Bulgarian","Caló","Catalan","Cebuano","Czech","Estonian","Farsi","Frisian","Friulian","Gaelic, Scottish","Galician","Gamilaraay","Greek, Ancient","Hebrew","Icelandic","Iloko","Interlingua","Inuktitut","Irish","Japanese","Kashubian","Khasi","Korean","Lithuanian","Maori","Mayan Languages","Middle English","Nahuatl","Napoletano-Calabrese","Navajo","North American Indian","Norwegian","Occitan","Ojibwa","Old English","Polish","Romanian","Russian","Sanskrit","Serbian","Slovenian","Tagabawa","Telugu","Welsh","Yiddish"]
         },
         "startUrls": {
             "title": "Start URLs",

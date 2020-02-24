@@ -13,7 +13,7 @@ exports.getSources = async () => {
     const { search, language, startUrls } = global.userInput;
 
     // Build start URLs
-    if (language) {
+    if (language && language !== 'none') {
         return [{
             url: `https://www.gutenberg.org/browse/languages/${language}`,
             userData: {

@@ -10,7 +10,7 @@ const {
 // BROWSE page crawler.
 // Fetches the ebooks from the list
 exports.BROWSE = async ({ $, request }, { requestQueue }) => {
-    log.info(`CRAWLER -- Fetching products from the url: ${request.url}`);
+    log.info(`CRAWLER -- Browse: Fetching ebooks from the url: ${request.url}`);
 
 
     // Check for error
@@ -43,7 +43,7 @@ exports.BROWSE = async ({ $, request }, { requestQueue }) => {
 // Adds next page to request queue
 exports.SEARCH = async ({ $, request }, { requestQueue }) => {
     const { page, baseURL } = request.userData;
-    log.info(`CRAWLER -- Fetching products from the url: ${request.url} page: ${page}`);
+    log.info(`CRAWLER -- Search: Fetching ebooks from the url: ${request.url} page: ${page}`);
 
     // Fetch all current ebooks listed
     const ebooks = extractors.fetchEbooksFromSearch($);
@@ -82,14 +82,6 @@ exports.EBOOK = async ({ $, request }) => {
     const { maxItems, extendOutputFunction } = global.userInput;
     log.info(`CRAWLER -- Fetching ebook details from ${request.url}`);
 
-    // Fetch ebook details
-    const ebook = extractors.fetchEbook($);
-
-    // Push data
-    await Apify.pushData({ ...ebook, ...(extendOutputFunction ? { ...eval(extendOutputFunction)($) } : {}) });
-
-    log.debug(`CRAWLER -- ebook details fetched from ${request.url}`);
-
     // Check for maxItems
     if (maxItems) {
         const dataset = await Apify.openDataset();
@@ -99,4 +91,13 @@ exports.EBOOK = async ({ $, request }) => {
             process.exit(0);
         }
     }
+
+    // Fetch ebook details
+    const ebook = extractors.fetchEbook($);
+
+
+    // Push data
+    await Apify.pushData({ ...ebook, ...(extendOutputFunction ? { ...eval(extendOutputFunction)($) } : {}) });
+
+    log.debug(`CRAWLER -- ebook details fetched from ${request.url}`);
 };

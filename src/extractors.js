@@ -1,6 +1,6 @@
 // Fetch offers from browse list page
 const fetchEbooksFromBrowse = ($) => {
-    return $('ul li a[href]')
+    return $('a[href]')
         .filter((i, el) => $(el).attr('href').match(/ebooks\/[0-9]/g))
         .map((i, el) => `https://www.gutenberg.org${$(el).attr('href')}`)
         .get();
