@@ -1,6 +1,6 @@
 # Actor - Gutenberg.org Scraper
 
-Gutenberg.org Scraper is an [Apify actor](https://apify.com/actors) for extracting data of ebooks from [Gutenberg.org](https://gutenberg.org). It allows you to search for keywords and fetch pick a language. It is build on top of [Apify SDK](https://sdk.apify.com/) and you can run it both on [Apify platform](https://my.apify.com) and locally.
+Gutenberg.org Scraper is an [Apify actor](https://apify.com/actors) for extracting data of ebooks from [Gutenberg.org](https://gutenberg.org). It allows you to search for keywords and pick a language. It is build on top of [Apify SDK](https://sdk.apify.com/) and you can run it both on [Apify platform](https://my.apify.com) and locally.
 
 - [Gutenberg.org Scraper Input Parameters](#input-parameters)
 - [Gutenberg.org Scraper Input Example](#input-example)
@@ -66,7 +66,7 @@ You can return fields to achive 3 different things:
 
 
 ### Compute Unit Consumption
-The actor optimized to run blazing fast and scrape many product as possible. Therefore, it forefronts all product detail requests. If actor doesn't block very often it'll scrape XXX products in XXX minutes with XXX compute units.
+The actor optimized to run blazing fast and scrape many product as possible. Therefore, it forefronts all product detail requests. If actor doesn't block very often it'll scrape ~250 products in 3 minutes with 0.0235 compute units.
 
 ## During the Run
 
