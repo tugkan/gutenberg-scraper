@@ -44,11 +44,13 @@ Apify.main(async () => {
         ...proxyConfig,
         useSessionPool: true,
         handlePageFunction: async (context) => {
-            const { request, response, session } = context;
+            const { $, request, response, session } = context;
             log.debug(`CRAWLER -- Processing ${request.url}`);
 
+            const isBlocked = $('h2').text().includes('How can I get unblocked?');
+
             // Status code check
-            if (!response || response.statusCode !== 200) {
+            if (!response || response.statusCode !== 200 || isBlocked) {
                 session.markBad();
                 throw new Error(`We got blocked by target on ${request.url}`);
             } else {

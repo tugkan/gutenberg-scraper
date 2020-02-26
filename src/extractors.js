@@ -15,26 +15,28 @@ const fetchEbooksFromSearch = ($) => {
 };
 
 // Fetch ebook defaults
-const fetchEbook = $ => ({
-    author: $('a[itemprop="creator"]').text().trim(),
-    title: $('h1[itemprop="name"]').text().trim(),
-    language: $('tr[itemprop="inLanguage"]').text().trim().replace(/Language/, '')
-        .trim(),
-    htmlURL: $('.files td[property="dcterms:format"]')
-        ? `https://www.gutenberg.org${$('.files td[property="dcterms:format"]')
-            .filter((i, el) => $(el).attr('content').includes('text/html'))
-            .find('a')
-            .attr('href')}` : null,
-    epubURL: $('.files td[content="application/epub+zip"] a').attr('href')
-        ? `https://www.gutenberg.org${$('.files td[content="application/epub+zip"] a').attr('href')}`
-        : null,
-    kindleURL: $('.files td[content="application/x-mobipocket-ebook"] a').attr('href')
-        ? `https://www.gutenberg.org${$('.files td[content="application/x-mobipocket-ebook"] a').attr('href')}`
-        : null,
-    plainTextURL: $('.files td[content="text/plain; charset=utf-8"] a').attr('href')
-        ? `https://www.gutenberg.org${$('.files td[content="text/plain; charset=utf-8"] a').attr('href')}`
-        : null,
-});
+const fetchEbook = ($) => {
+    return {
+        author: $('a[itemprop="creator"]').text().trim(),
+        title: $('h1[itemprop="name"]').text().trim(),
+        language: $('tr[itemprop="inLanguage"]').text().trim().replace(/Language/, '')
+            .trim(),
+        htmlURL: $('.files td[property="dcterms:format"]')
+            ? `https://www.gutenberg.org${$('.files td[property="dcterms:format"]')
+                .filter((i, el) => $(el).attr('content').includes('text/html'))
+                .find('a')
+                .attr('href')}` : null,
+        epubURL: $('.files td[content="application/epub+zip"] a').attr('href')
+            ? `https://www.gutenberg.org${$('.files td[content="application/epub+zip"] a').attr('href')}`
+            : null,
+        kindleURL: $('.files td[content="application/x-mobipocket-ebook"] a').attr('href')
+            ? `https://www.gutenberg.org${$('.files td[content="application/x-mobipocket-ebook"] a').attr('href')}`
+            : null,
+        plainTextURL: $('.files td[content="text/plain; charset=utf-8"] a').attr('href')
+            ? `https://www.gutenberg.org${$('.files td[content="text/plain; charset=utf-8"] a').attr('href')}`
+            : null,
+    };
+};
 
 module.exports = {
     fetchEbooksFromBrowse,
