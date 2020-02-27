@@ -1,5 +1,5 @@
 {
-	"name": "apify-gutenberg-actor",
+	"name": "gutenberg-scraper",
 	"version": "0.0",
 	"buildTag": "latest",
 	"template": "cheerio_crawler"
